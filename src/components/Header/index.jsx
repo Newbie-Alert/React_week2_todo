@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 // Header Container
@@ -14,9 +15,11 @@ const HeaderContainer = styled.div`
 `;
 
 export default function Header() {
+  const navi = useNavigate();
+
   return (
     <HeaderContainer>
-      <h3>TodoList</h3>
+      <h3 onClick={() => navi("/")}>TodoList</h3>
       <h3>React_week2</h3>
     </HeaderContainer>
   );

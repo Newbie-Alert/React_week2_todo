@@ -80,7 +80,7 @@ export default function TodoCard({ isActive }) {
           return (
             <TodoItem key={el.id}>
               <div>
-                <h3 onClick={navi(`/detail/${el.id}`)}>{el.title}</h3>
+                <h3 onClick={() => navi(`/detail/${el.id}`)}>{el.title}</h3>
                 <p>{el.text}</p>
               </div>
               <ButtonBox>
@@ -94,7 +94,7 @@ export default function TodoCard({ isActive }) {
                   삭제
                 </ItemBtn>
                 <ItemBtn onClick={statusToggle} role={"complete"} id={el.id}>
-                  {isActive === true ? "완료" : "취소"}
+                  {el.isDone === false ? "완료" : "취소"}
                 </ItemBtn>
               </ButtonBox>
             </TodoItem>

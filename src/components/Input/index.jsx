@@ -51,7 +51,13 @@ export default function Input() {
 
   const handleSubmit = (e, text, title) => {
     e.preventDefault();
-    let task = { id: uuid(), text, title, isDone: false };
+    let task = {
+      id: uuid(),
+      text,
+      title,
+      isDone: false,
+      createdAt: new Date().toString(),
+    };
     dispatch(addTask(task));
     setText("");
     setTitle("");

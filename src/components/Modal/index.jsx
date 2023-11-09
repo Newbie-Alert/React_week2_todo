@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { closeState } from "../../redux/modules/modal";
 import { deleteTask } from "../../redux/modules/todo";
+import { useNavigate } from "react-router-dom";
 
 // STYLED-COMPONENTS
 const ModalContainer = styled.div`
@@ -53,6 +54,8 @@ const ModalBtn = styled.button`
 
 // MAIN COMPONENT
 export default function Modal() {
+  const navi = useNavigate();
+
   // REDUX STATE
   const modalState = useSelector((state) => state.modalSwitch);
   const selected = useSelector((state) => state.selected);
@@ -68,6 +71,7 @@ export default function Modal() {
   const removeTask = () => {
     dispatch(deleteTask(selected));
     closeModal();
+    navi("/");
   };
 
   if (modalState === false) return null;
