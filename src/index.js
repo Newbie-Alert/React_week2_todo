@@ -9,6 +9,7 @@ import Router from './Router/Router';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* Redux store 주입 */}
     <Provider store={store}>
       <Router />
     </Provider>

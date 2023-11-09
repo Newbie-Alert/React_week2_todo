@@ -1,6 +1,8 @@
+// Action Value
 const CLOSE = "modal/CLOSE";
 const OPEN = "modal/OPEN"
 
+// Action creator
 export const closeState = () => {
   return { type: CLOSE }
 }
@@ -10,9 +12,11 @@ export const openState = () => {
 }
 
 
+// InitValue
 const initialValue = false;
 
 
+// Reducer
 export const modalSwitch = (state = initialValue, action) => {
   switch (action.type) {
     case CLOSE:

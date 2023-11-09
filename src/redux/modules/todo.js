@@ -14,10 +14,10 @@ export const deleteTask = (payload) => {
   return { type: DELETE_TASK, id: payload }
 }
 
-// state (초기값)
+// InitValue
 const initialValue = []
 
-// reducer
+// Reducer
 const todos = (state = initialValue, action) => {
   switch (action.type) {
     case ADD_TASK:

@@ -1,11 +1,15 @@
+// Action Value
 const SELECT = "selected/SELECT"
 
-const initialValue = null;
-
+// Action creator
 export const setSelected = (payload) => {
   return { type: SELECT, id: payload }
 }
 
+// InitValue
+const initialValue = null;
+
+// Reducer
 const selected = (state = initialValue, action) => {
   switch (action.type) {
     case SELECT:

@@ -64,10 +64,12 @@ export default function Modal() {
   const dispatch = useDispatch();
 
   // FUNCTION
+  // 모달 닫기
   const closeModal = () => {
     dispatch(closeState());
   };
 
+  // 할 일 삭제 후 메인 페이지로 이동
   const removeTask = () => {
     dispatch(deleteTask(selected));
     closeModal();

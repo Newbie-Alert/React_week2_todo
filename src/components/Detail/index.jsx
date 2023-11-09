@@ -7,6 +7,7 @@ import { openState } from "../../redux/modules/modal";
 import { changeStatus } from "../../redux/modules/todo";
 import Modal from "../Modal";
 
+// STYLED-COMPONENT
 const DetailContainer = styled.div`
   width: 100%;
   padding: 3rem 0;
@@ -58,10 +59,13 @@ const DetailBtn = styled.button.attrs((props) => ({
   }
 `;
 
+// MAIN COMPONENT
 export default function Detail() {
+  // HOOK
   const urlParmeter = useParams();
   const navi = useNavigate();
 
+  // REDUX STATE
   const data = useSelector((state) => state.todos).find(
     (el) => el.id === urlParmeter.id
   );
@@ -70,14 +74,18 @@ export default function Detail() {
   const dispatch = useDispatch();
 
   // FUNCTIONS
+
+  // 모달창이 열린 게시물의 ID를 저장
   const setModalId = (e) => {
     dispatch(setSelected(e.target.id));
   };
 
+  // 모달 오픈
   const openModal = () => {
     dispatch(openState());
   };
 
+  // 완료 || 취소 버튼이 눌린 게시물의 isDone 상태 변경
   const statusToggle = (e) => {
     dispatch(changeStatus(e.target.id));
   };

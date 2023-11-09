@@ -38,17 +38,21 @@ export default function Input() {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
 
+  // DISPATCH
+  const dispatch = useDispatch();
+
   // FUNCTION
+  // text state 변경
   const handleText = (e) => {
     setText(e.target.value);
   };
+
+  // title state 변경
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
 
-  // DISPATCH
-  const dispatch = useDispatch();
-
+  // 할 일을 todo state에 등록
   const handleSubmit = (e, text, title) => {
     e.preventDefault();
     let task = {

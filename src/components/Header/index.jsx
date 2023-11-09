@@ -14,7 +14,9 @@ const HeaderContainer = styled.div`
   color: white;
 `;
 
+// MAIN COMPONENT
 export default function Header() {
+  // HOOK
   const navi = useNavigate();
 
   return (

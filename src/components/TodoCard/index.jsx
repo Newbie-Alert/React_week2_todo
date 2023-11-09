@@ -42,7 +42,7 @@ const ItemBtn = styled.button.attrs((props) => ({
 
 // MAIN COMPONENT
 export default function TodoCard({ isActive }) {
-  // useNavigator
+  // HOOK
   const navi = useNavigate();
 
   // Redux_STATE
@@ -56,14 +56,15 @@ export default function TodoCard({ isActive }) {
   const dispatch = useDispatch();
 
   // FUNCTION
+  // 완료 || 취소 버튼이 눌린 게시물의 isDone 상태 변경
   const statusToggle = (e) => {
     dispatch(changeStatus(e.target.id));
   };
-
+  // 모달창이 열린 게시물의 ID를 저장
   const setModalId = (e) => {
     dispatch(setSelected(e.target.id));
   };
-
+  // 모달 오픈
   const openModal = () => {
     dispatch(openState());
   };
