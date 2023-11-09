@@ -25,6 +25,7 @@ const todos = (state = initialValue, action) => {
     case CHANGE_STATUS:
       let found = state.find(el => el.id === action.id)
       found.isDone = !found.isDone;
+      // 왜 중괄호로 작동해야 정상 작동하는지 이해 못 했습니다.
       return [...state, { found }]
     case DELETE_TASK:
       let filtered = state.filter(el => el.id !== action.id)

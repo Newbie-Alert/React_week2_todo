@@ -7,3 +7,4 @@
 - Detail 페이지 완성
 - 과제 요구사항 완료
 - 주석 추가
+- component mount 시 animation 추가

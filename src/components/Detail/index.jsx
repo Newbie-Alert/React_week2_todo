@@ -1,16 +1,41 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { setSelected } from "../../redux/modules/selected";
 import { openState } from "../../redux/modules/modal";
 import { changeStatus } from "../../redux/modules/todo";
 import Modal from "../Modal";
 
 // STYLED-COMPONENT
+// animation
+const CompFade = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  25% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+`;
+
 const DetailContainer = styled.div`
   width: 100%;
   padding: 3rem 0;
+  animation: ${CompFade} 0.5s forwards;
 `;
 
 const DetailBox = styled.div`
@@ -74,7 +99,6 @@ export default function Detail() {
   const dispatch = useDispatch();
 
   // FUNCTIONS
-
   // 모달창이 열린 게시물의 ID를 저장
   const setModalId = (e) => {
     dispatch(setSelected(e.target.id));
@@ -91,35 +115,37 @@ export default function Detail() {
   };
 
   return (
-    <DetailContainer>
-      <DetailBox>
-        <DetailTitle>
-          <h3>{data.title}</h3>
-        </DetailTitle>
-        <DetailContent>등록일시: {data.createdAt.slice(0, 25)}</DetailContent>
-        <DetailText>{data.text}</DetailText>
-        <DetailFooter>
-          <DetailBtn
-            onClick={(e) => {
-              setModalId(e);
-              openModal();
-            }}
-            role={"delete"}
-            id={data.id}>
-            삭제
-          </DetailBtn>
-          <DetailBtn
-            onClick={(e) => {
-              statusToggle(e);
-              navi("/");
-            }}
-            role={"complete"}
-            id={data.id}>
-            {data.isDone === false ? "완료" : "취소"}
-          </DetailBtn>
-        </DetailFooter>
-      </DetailBox>
+    <>
+      <DetailContainer>
+        <DetailBox>
+          <DetailTitle>
+            <h3>{data.title}</h3>
+          </DetailTitle>
+          <DetailContent>등록일시: {data.createdAt.slice(0, 25)}</DetailContent>
+          <DetailText>{data.text}</DetailText>
+          <DetailFooter>
+            <DetailBtn
+              onClick={(e) => {
+                setModalId(e);
+                openModal();
+              }}
+              role={"delete"}
+              id={data.id}>
+              삭제
+            </DetailBtn>
+            <DetailBtn
+              onClick={(e) => {
+                statusToggle(e);
+                navi("/");
+              }}
+              role={"complete"}
+              id={data.id}>
+              {data.isDone === false ? "완료" : "취소"}
+            </DetailBtn>
+          </DetailFooter>
+        </DetailBox>
+      </DetailContainer>
       <Modal />
-    </DetailContainer>
+    </>
   );
 }
