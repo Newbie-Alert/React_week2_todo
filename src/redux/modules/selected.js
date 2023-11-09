@@ -1,4 +1,4 @@
-const SELECT = "SELECT"
+const SELECT = "selected/SELECT"
 
 const initialValue = null;
 

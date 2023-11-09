@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { changeStatus } from "../../redux/modules/todo";
 import { openState } from "../../redux/modules/modal";
 import { setSelected } from "../../redux/modules/selected";
+import { useNavigate } from "react-router-dom";
 
 // STYLED-COMPONENTS
 const ListContainer = styled.div`
@@ -31,6 +32,7 @@ const ButtonBox = styled.div`
 const ItemBtn = styled.button.attrs((props) => ({
   "data-id": props.id,
 }))`
+  /* props에 따라 버튼 hover 시 배경색이 달라지게 */
   &:hover {
     background-color: ${(props) =>
       props.role === "delete" ? "#f76363" : "#20B2AA"};
@@ -40,7 +42,12 @@ const ItemBtn = styled.button.attrs((props) => ({
 
 // MAIN COMPONENT
 export default function TodoCard({ isActive }) {
+  // useNavigator
+  const navi = useNavigate();
+
+  // Redux_STATE
   const todos = useSelector((state) => state.todos);
+  // 할 일 상태(진행 중 / 완료)에 따라 filter한 list
   let filtered = isActive
     ? todos?.filter((el) => el.isDone === false)
     : todos?.filter((el) => el.isDone === true);
@@ -73,7 +80,7 @@ export default function TodoCard({ isActive }) {
           return (
             <TodoItem key={el.id}>
               <div>
-                <h3>{el.title}</h3>
+                <h3 onClick={navi(`/detail/${el.id}`)}>{el.title}</h3>
                 <p>{el.text}</p>
               </div>
               <ButtonBox>

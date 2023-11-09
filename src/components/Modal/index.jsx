@@ -43,6 +43,7 @@ const MobalBtnBox = styled.div`
 `;
 
 const ModalBtn = styled.button`
+  /* props에 따라 버튼 hover 시 배경색이 달라지게 */
   &:hover {
     background-color: ${(props) =>
       props.role === "delete" ? "#f76363" : "#20B2AA"};

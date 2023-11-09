@@ -1,5 +1,5 @@
-const CLOSE = "CLOSE";
-const OPEN = "OPEN"
+const CLOSE = "modal/CLOSE";
+const OPEN = "modal/OPEN"
 
 export const closeState = () => {
   return { type: CLOSE }

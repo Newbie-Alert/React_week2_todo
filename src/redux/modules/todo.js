@@ -1,7 +1,7 @@
-// const Action Value
-const CHANGE_STATUS = "CHANGE_STATUS"
-const ADD_TASK = "ADD_TASK"
-const DELETE_TASK = "DELETE_TASK"
+// Action Value
+const CHANGE_STATUS = "todo/CHANGE_STATUS"
+const ADD_TASK = "todo/ADD_TASK"
+const DELETE_TASK = "todo/DELETE_TASK"
 
 // Action creator
 export const addTask = (payload) => {
