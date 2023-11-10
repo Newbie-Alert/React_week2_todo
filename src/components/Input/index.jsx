@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/modules/todo";
 import uuid from "react-uuid";
 import styled from "styled-components";
-import { addTask } from "../../redux/modules/todo";
 
 // STYLED-COMPONENTS
 const InputContainer = styled.form`

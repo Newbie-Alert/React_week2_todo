@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 import { closeState } from "../../redux/modules/modal";
 import { deleteTask } from "../../redux/modules/todo";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 // STYLED-COMPONENTS
 const ModalContainer = styled.div`

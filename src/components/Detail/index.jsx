@@ -1,11 +1,11 @@
 import React from "react";
+import Modal from "../Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
 import { setSelected } from "../../redux/modules/selected";
 import { openState } from "../../redux/modules/modal";
 import { changeStatus } from "../../redux/modules/todo";
-import Modal from "../Modal";
+import styled, { keyframes } from "styled-components";
 
 // STYLED-COMPONENT
 // animation

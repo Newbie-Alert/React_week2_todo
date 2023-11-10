@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 import { changeStatus } from "../../redux/modules/todo";
 import { openState } from "../../redux/modules/modal";
 import { setSelected } from "../../redux/modules/selected";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 // STYLED-COMPONENTS
 const ListContainer = styled.div`

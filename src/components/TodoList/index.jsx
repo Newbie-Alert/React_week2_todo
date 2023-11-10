@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import TodoCard from "../TodoCard";
+import styled from "styled-components";
 
 // STYLED-COMPONENTS
 const TodoContainer = styled.div`
