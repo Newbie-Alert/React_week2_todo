@@ -1,3 +1,7 @@
+### 11.10
+- App.jsx 정리, AppContainer component 분리, import 항목 순서 정리
+
+
 ### 11.09
 
 - styled-component 적용
